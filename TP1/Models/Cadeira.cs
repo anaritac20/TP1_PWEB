@@ -9,7 +9,7 @@ namespace TP1.Models
     {
         public int ID { get; set; }
         public int ETCS { get; set; }
-        public string Nome { get; set; }
+        public string Nome { get; }
         public bool Concluida { get; set; }
 
     }
