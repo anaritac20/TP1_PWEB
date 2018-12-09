@@ -17,12 +17,14 @@ namespace TP1.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private TP1Context context;
 
         public AccountController()
         {
+            context = new TP1Context();
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +36,9 @@ namespace TP1.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +122,7 @@ namespace TP1.Controllers
             // Se um usuário inserir códigos incorretos para uma quantidade especificada de tempo, então a conta de usuário 
             // será bloqueado por um período especificado de tempo. 
             // Você pode configurar os ajustes de bloqueio da conta em IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -139,6 +141,7 @@ namespace TP1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Perfis = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -155,19 +158,73 @@ namespace TP1.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    //ou UserManager.AddtoRole(user.id, model.UserRoles);
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
 
+
+                    if (model.UserRoles == "Aluno")
+                    {
+                        Aluno aluno = new Aluno()
+                        {
+                            //Nome = model.Email,
+                            //BI = 1,
+                            //NIF = 1,
+                            UserId = user.Id
+                        };
+                        context.Alunos.Add(aluno);
+                    }
+
+                    if (model.UserRoles == "Docente")
+                    {
+                        Docente docente = new Docente()
+                        {
+                            //Nome = "ZZZZZ",
+                            //NomeAssociacao = "ZZZZZZ",
+                            UserId = user.Id
+                        };
+
+                        context.Docentes.Add(docente);
+                    }
+
+                    if (model.UserRoles == "Comissao")
+                    {
+                        Docente docente = new Docente()
+                        {
+                            //Nome = "ZZZZZ",
+                            //NomeAssociacao = "ZZZZZZ",
+                            UserId = user.Id
+                        };
+
+                        context.Docentes.Add(docente);
+                    }
+
+
+                    if (model.UserRoles == "Empresa")
+                    {
+                        Empresa empresa = new Empresa()
+                        {
+                            //Nome = "ZZZZZ",
+                            //NomeAssociacao = "ZZZZZZ",
+                            UserId = user.Id
+                        };
+
+                        context.Empresas.Add(empresa);
+                    }
+
+                    context.SaveChanges();
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
+            ViewBag.Perfis = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             // Se chegamos até aqui e houver alguma falha, exiba novamente o formulário
             return View(model);
         }

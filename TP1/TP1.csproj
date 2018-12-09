@@ -209,10 +209,29 @@
     <Compile Include="Migrations\201811281200256_IniticalModel.Designer.cs">
       <DependentUpon>201811281200256_IniticalModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812082028029_SemCadeira.cs" />
+    <Compile Include="Migrations\201812082028029_SemCadeira.Designer.cs">
+      <DependentUpon>201812082028029_SemCadeira.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812082102434_IdentityModel.cs" />
+    <Compile Include="Migrations\201812082102434_IdentityModel.Designer.cs">
+      <DependentUpon>201812082102434_IdentityModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812082120131_IdentityModelComForeignKeys.cs" />
+    <Compile Include="Migrations\201812082120131_IdentityModelComForeignKeys.Designer.cs">
+      <DependentUpon>201812082120131_IdentityModelComForeignKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812082140242_CreateRoles.cs" />
+    <Compile Include="Migrations\201812082140242_CreateRoles.Designer.cs">
+      <DependentUpon>201812082140242_CreateRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812090104272_CreateRoles2.cs" />
+    <Compile Include="Migrations\201812090104272_CreateRoles2.Designer.cs">
+      <DependentUpon>201812090104272_CreateRoles2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aluno.cs" />
-    <Compile Include="Models\Cadeira.cs" />
     <Compile Include="Models\Docente.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -308,6 +327,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811281200256_IniticalModel.resx">
       <DependentUpon>201811281200256_IniticalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812082028029_SemCadeira.resx">
+      <DependentUpon>201812082028029_SemCadeira.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812082102434_IdentityModel.resx">
+      <DependentUpon>201812082102434_IdentityModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812082120131_IdentityModelComForeignKeys.resx">
+      <DependentUpon>201812082120131_IdentityModelComForeignKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812082140242_CreateRoles.resx">
+      <DependentUpon>201812082140242_CreateRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812090104272_CreateRoles2.resx">
+      <DependentUpon>201812090104272_CreateRoles2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

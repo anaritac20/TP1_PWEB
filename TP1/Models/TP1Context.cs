@@ -6,15 +6,14 @@ using System.Web;
 
 namespace TP1.Models
 {
-    public class TP1Context : DbContext
+    public class TP1Context : ApplicationDbContext
     {
 
-        public TP1Context() : base("name=DefaultConnection")
+        public TP1Context()// : base("name=DefaultConnection")
         {
 
         }
         public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Cadeira> Cadeiras { get; set; }
         public DbSet<Docente> Docentes { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Proposta> Propostas { get; set; }

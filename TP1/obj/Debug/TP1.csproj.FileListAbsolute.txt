@@ -130,3 +130,8 @@ C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.dll
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.pdb
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.IniticalModel.resources
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csproj.GenerateResource.cache
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.SemCadeira.resources
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.IdentityModel.resources
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.IdentityModelComForeignKeys.resources
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.CreateRoles.resources
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.CreateRoles2.resources

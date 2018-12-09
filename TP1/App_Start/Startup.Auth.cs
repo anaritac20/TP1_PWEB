@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -34,7 +35,7 @@ namespace TP1
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Permite que o aplicativo armazene temporariamente as informações do usuário quando ele estiver verificando o segundo fator no processo de autenticação de dois fatores.
@@ -44,7 +45,7 @@ namespace TP1
             // Assim que você marcar esta opção, sua segunda etapa de verificação durante o processo de login será lembrada no dispositivo no qual você efetuou login.
             // Isso é semelhante à opção RememberMe (Lembre-me) quando você efetua login.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
-
+            CreateRolesAndUsers();
             // Remover comentário das seguintes linhas para habilitar o logon com provedores de logon de terceiros
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
@@ -63,6 +64,62 @@ namespace TP1
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+        }
+        public void CreateRolesAndUsers()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            if (!roleManager.RoleExists("Admin"))
+            {
+                //first we create Admin rool
+                var role = new IdentityRole
+                {
+                    Name = "Admin"
+                };
+                roleManager.Create(role);
+
+                var user = new ApplicationUser
+                {
+                    UserName = "admin",
+                    Email = "admin@isec.pt"
+                };
+
+                string userPWD = @"1qazZAQ";
+                var chkUser = userManager.Create(user, userPWD);
+                //Add default user to role admin
+                if (chkUser.Succeeded)
+                {
+                    var result = userManager.AddToRole(user.Id, "Admin");
+                }
+
+            }
+
+            if (!roleManager.RoleExists("Aluno"))
+            {
+                var role = new IdentityRole { Name = "Aluno" };
+                roleManager.Create(role);
+            }
+
+            if (!roleManager.RoleExists("Docente"))
+            {
+                var role = new IdentityRole { Name = "Docente" };
+                roleManager.Create(role);
+            }
+
+            if (!roleManager.RoleExists("Empresa"))
+            {
+                var role = new IdentityRole { Name = "Empresa" };
+                roleManager.Create(role);
+            }
+
+            if (!roleManager.RoleExists("Comissao"))
+            {
+                var role = new IdentityRole { Name = "Comissao" };
+                roleManager.Create(role);
+            }
         }
     }
 }

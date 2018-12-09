@@ -79,6 +79,10 @@ namespace TP1.Models
         [Display(Name = "Confirmar Senha")]
         [Compare("Password", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Perfil")]
+        public string UserRoles { get; set; }
     }
 
     public class ResetPasswordViewModel
