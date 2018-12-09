@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201812090104272_CreateRoles2.Designer.cs">
       <DependentUpon>201812090104272_CreateRoles2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812091951014_atualizaçaoContext.cs" />
+    <Compile Include="Migrations\201812091951014_atualizaçaoContext.Designer.cs">
+      <DependentUpon>201812091951014_atualizaçaoContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -305,10 +309,11 @@
     <Content Include="Views\Empresa\Index.cshtml" />
     <Content Include="Views\Empresa\ListasEmpresas.cshtml" />
     <Content Include="Views\Empresa\Submit.cshtml" />
+    <Content Include="Views\Aluno\PreenchePerfil.cshtml" />
+    <Content Include="Views\Aluno\ListarAlunos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Aluno\" />
     <Folder Include="Views\Proposta\" />
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812090104272_CreateRoles2.resx">
       <DependentUpon>201812090104272_CreateRoles2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091951014_atualizaçaoContext.resx">
+      <DependentUpon>201812091951014_atualizaçaoContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

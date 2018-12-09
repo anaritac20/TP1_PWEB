@@ -174,12 +174,11 @@ namespace TP1.Controllers
                     {
                         Aluno aluno = new Aluno()
                         {
-                            //Nome = model.Email,
-                            //BI = 1,
-                            //NIF = 1,
                             UserId = user.Id
                         };
                         context.Alunos.Add(aluno);
+                        context.SaveChanges();
+                        return RedirectToAction("teste", "Aluno");
                     }
 
                     if (model.UserRoles == "Docente")
@@ -192,6 +191,8 @@ namespace TP1.Controllers
                         };
 
                         context.Docentes.Add(docente);
+                        context.SaveChanges();
+                        return RedirectToAction("Index", "Home");
                     }
 
                     if (model.UserRoles == "Comissao")
@@ -204,6 +205,8 @@ namespace TP1.Controllers
                         };
 
                         context.Docentes.Add(docente);
+                        context.SaveChanges();
+                        return RedirectToAction("Index", "Home");
                     }
 
 
@@ -217,10 +220,11 @@ namespace TP1.Controllers
                         };
 
                         context.Empresas.Add(empresa);
+                        context.SaveChanges();
+                        return RedirectToAction("Index", "Home");
                     }
 
-                    context.SaveChanges();
-                    return RedirectToAction("Index", "Home");
+
                 }
                 AddErrors(result);
             }
