@@ -11,7 +11,7 @@ namespace TP1.Models
         public int ID { get; set; }
         public string Nome { get; set; }
         public int Telefone { get; set; }
-        public IList<Proposta> Propostas { get; set; } //Lista
+        public IList<Proposta> Propostas { get; set; } = new List<Proposta>();    //Lista
 
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
