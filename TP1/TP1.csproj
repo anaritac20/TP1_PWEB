@@ -311,6 +311,8 @@
     <Content Include="Views\Empresa\Submit.cshtml" />
     <Content Include="Views\Aluno\PreenchePerfil.cshtml" />
     <Content Include="Views\Aluno\ListarAlunos.cshtml" />
+    <Content Include="Views\Aluno\Delete.cshtml" />
+    <Content Include="Views\Aluno\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

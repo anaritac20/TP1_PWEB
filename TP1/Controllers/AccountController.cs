@@ -178,7 +178,7 @@ namespace TP1.Controllers
                         };
                         context.Alunos.Add(aluno);
                         context.SaveChanges();
-                        return RedirectToAction("teste", "Aluno");
+                        return RedirectToAction("PreenchePerfil", "Aluno");
                     }
 
                     if (model.UserRoles == "Docente")

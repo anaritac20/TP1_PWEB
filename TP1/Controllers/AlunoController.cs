@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TP1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TP1.Controllers
 {
+    [Authorize]
     public class AlunoController : Controller
     {
-        //private Context db = Context.Db;
         private TP1Context context;
 
         public AlunoController()
@@ -25,44 +27,62 @@ namespace TP1.Controllers
             return View();
         }
 
-        public ActionResult teste()
-        {
-            return Content("Ola, isto é o teste em AlunoController");
-        }
+
 
         [HttpGet]
         public ActionResult PreenchePerfil()
         {
-            //  ViewBag.Ramo = new SelectList(context. .Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
-            // context.Alunos.Find( )
             return View();
         }
 
         [HttpPost]
-        public ActionResult PreenchePerfil(int c)
+        [Authorize(Roles = "Aluno")]
+        public ActionResult PreenchePerfil(Aluno a)
         {
+            var CurrentID = User.Identity.GetUserId();
+
 
             if (ModelState.IsValid)
             {
-                //  Aluno a = context.Alunos.Find(Userid)
+                Aluno f = context.Alunos.Single(x => x.UserId == CurrentID);
+
+                f.Nome = a.Nome;
+                f.nAluno = a.nAluno;
+                f.Curriculo = a.Curriculo;
+                //descobrir como se faz um drop down com os ramos!!
 
             }
             context.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
-        public ActionResult ListarPropostas()
-        {
-            //var go = db.LPropostas.Where(x => x.Check == false);
-
-            return View(context.Propostas);
-        }
-
+       
         public ActionResult ListarAlunos()
         {
-            //var go = db.LPropostas.Where(x => x.Check == false);
 
             return View(context.Alunos);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int c)
+        {
+            Aluno a = context.Alunos.Single(x => x.ID == c);
+            return View(a);
+        }
+        [HttpPost]
+        public ActionResult Delete(Aluno a)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Alunos.Remove(a);
+            }
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult teste()
+        {
+            return Content("Ola, isto é o teste em AlunoController");
         }
     }
 }

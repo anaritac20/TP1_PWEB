@@ -20,9 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Curriculo)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Avaliacao)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.UserId)
         </th>
@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.Curriculo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Avaliacao)
+            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserId)

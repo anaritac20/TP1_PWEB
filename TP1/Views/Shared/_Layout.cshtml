@@ -30,8 +30,13 @@
 
                     <li>@Html.ActionLink("Ver Docentes", "ListasDocentes", "Docentes")</li>    @*isto eventualmente sai daqui*@
 
+                    @if (User.IsInRole("Aluno"))
+                    {
+                        <li> @Html.ActionLink("Ver Propostas", "ListarPropostas", "Proposta")</li>
+                        <li> @Html.ActionLink("Ver Alunos", "ListarAlunos", "Aluno")</li>
+                        <li> @Html.ActionLink("Preencher Perfil", "PreenchePerfil", "Aluno")</li>
 
-                    @* <li>@Html.ActionLink("Contato", "Contact", "Home")</li>*@
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
