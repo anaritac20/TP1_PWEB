@@ -31,9 +31,13 @@ namespace TP1.Models
             return new ApplicationDbContext();
         }
 
+        //public System.Data.Entity.DbSet<TP1.Models.Docente> Docentes { get; set; }
+
+        //public System.Data.Entity.DbSet<TP1.Models.ApplicationUser> ApplicationUsers { get; set; }
+
         //  public System.Data.Entity.DbSet<TP1.Models.Aluno> Alunoes { get; set; }
 
-   //     public System.Data.Entity.DbSet<TP1.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //     public System.Data.Entity.DbSet<TP1.Models.ApplicationUser> ApplicationUsers { get; set; }
 
         //  public System.Data.Entity.DbSet<TP1.Models.Aluno> Alunoes { get; set; }
 

@@ -32,11 +32,38 @@
 
                     @if (User.IsInRole("Aluno"))
                     {
-                        <li> @Html.ActionLink("Ver Propostas", "ListarPropostas", "Proposta")</li>
-                        <li> @Html.ActionLink("Ver Alunos", "ListarAlunos", "Aluno")</li>
-                        <li> @Html.ActionLink("Preencher Perfil", "PreenchePerfil", "Aluno")</li>
-
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Listar<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Estágios", "ListarPropostas", "Proposta")</li>
+                                <li>@Html.ActionLink("Empresas", "ListarEmpresas", "Empresa")</li>
+                                <li>@Html.ActionLink("Editar", "Editar", "Conta")</li>
+                            </ul>
+                        </li>
+                        <li> @Html.ActionLink("Editar Perfil", "PreenchePerfil", "Aluno")</li>
                     }
+
+                    @if (User.IsInRole("Empresa"))
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Listar<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Estágios", "ListarPropostas", "Empresa")</li>
+                              @*  <li>@Html.ActionLink("Docentes", "ListarDocentes", "Empresa")</li>*@
+                            </ul>
+                        </li>
+                        <li> @Html.ActionLink("Submeter Estágio", "SubmitE", "Proposta")</li>
+                        <li> @Html.ActionLink("Editar Perfil", "PreenchePerfil", "Empresa")</li>
+                    }
+
+
+
+
+
+
+
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

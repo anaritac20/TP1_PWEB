@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,9 +8,16 @@ using TP1.Models;
 
 namespace TP1.Controllers
 {
+    [Authorize]
     public class EmpresaController : Controller
     {
-        private Context db = Context.Db;
+        private TP1Context context;
+
+        public EmpresaController()
+        {
+            context = new TP1Context();
+        }
+
         // GET: Empresas
         public ActionResult Index()
         {
@@ -18,28 +26,47 @@ namespace TP1.Controllers
 
         public ActionResult ListasEmpresas()
         {
-            return View(db.LEmpresas);
+            return View(context.Empresas);
         }
 
-        public ActionResult Submit()
+        [HttpPost]
+        public ActionResult ListarPropostas()
         {
+            var CurrentID = User.Identity.GetUserId();
+
+            Empresa f = context.Empresas.Single(x => x.UserId == CurrentID);
+
+            return View(f.Propostas);
+        }
+
+
+
+        [HttpGet]
+      //  [Authorize(Roles = "Empresa")]
+        public ActionResult PreenchePerfil()
+        {
+            //   ViewBag.Perfis = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Submit(Proposta s)
+        [HttpPost]
+      //  [Authorize(Roles = "Empresa")]
+        public ActionResult PreenchePerfil(Empresa a)
         {
-            if (!ModelState.IsValid)
-            {
-                s.Livre = true;
-                s.Student = null;
+            var CurrentID = User.Identity.GetUserId();
 
-                db.LPropostas.Add(s);
+            if (ModelState.IsValid)
+            {
+                Empresa f = context.Empresas.Single(x => x.UserId == CurrentID);
+
+                f.Nome = a.Nome;
+                f.Telefone = a.Telefone;
+                f.Propostas = null;
 
             }
-
-            return RedirectToAction("Home/Submetido");
-
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
+
     }
 }

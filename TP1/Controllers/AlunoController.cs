@@ -32,6 +32,7 @@ namespace TP1.Controllers
         [HttpGet]
         public ActionResult PreenchePerfil()
         {
+            //   ViewBag.Perfis = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -41,44 +42,43 @@ namespace TP1.Controllers
         {
             var CurrentID = User.Identity.GetUserId();
 
-
             if (ModelState.IsValid)
             {
                 Aluno f = context.Alunos.Single(x => x.UserId == CurrentID);
-
+            
                 f.Nome = a.Nome;
                 f.nAluno = a.nAluno;
                 f.Curriculo = a.Curriculo;
-                //descobrir como se faz um drop down com os ramos!!
+                f.Ramo = a.Ramo;
 
             }
             context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-       
+
         public ActionResult ListarAlunos()
         {
 
             return View(context.Alunos);
         }
 
-        [HttpGet]
-        public ActionResult Delete(int c)
-        {
-            Aluno a = context.Alunos.Single(x => x.ID == c);
-            return View(a);
-        }
-        [HttpPost]
-        public ActionResult Delete(Aluno a)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Alunos.Remove(a);
-            }
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpGet]
+        //public ActionResult Delete(int c)
+        //{
+        //    Aluno a = context.Alunos.Single(x => x.ID == c);
+        //    return View(a);
+        //}
+        //[HttpPost]
+        //public ActionResult Delete(Aluno a)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        context.Alunos.Remove(a);
+        //    }
+        //    context.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         public ActionResult teste()
         {

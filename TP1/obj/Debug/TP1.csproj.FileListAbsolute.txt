@@ -136,3 +136,4 @@ C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csproj.CopyComplete
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.dll
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.pdb
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csprojAssemblyReference.cache
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.ModelsChange.resources

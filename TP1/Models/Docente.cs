@@ -14,6 +14,7 @@ namespace TP1.Models
         public IList<Aluno> Aluno { get; set; }
         public IList<Proposta> Propostas { get; set; }
         public DateTime DataDefesa { get; set; }
+        public bool Selecionado { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }

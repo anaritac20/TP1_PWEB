@@ -8,15 +8,15 @@ namespace TP1.Controllers
 {
     public class DocenteController : Controller
     {
-        private Context db = Context.Db;
+        
         // GET: Docentes
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult ListasDocentes()
-        {
-            return View(db.LDocentes);
-        }
+        //public ActionResult ListasDocentes()
+        //{
+        //    return View(db.LDocentes);
+        //}
     }
 }

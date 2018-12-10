@@ -22,18 +22,15 @@ namespace TP1.Controllers
             return View();
         }
 
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
-
         public ActionResult Submetido()
         {
             return View();
         }
 
+        public ActionResult PerfilIncompleto()
+        {
+            return View();
+        }
 
 
     }

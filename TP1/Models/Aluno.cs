@@ -10,7 +10,6 @@ namespace TP1.Models
     [Table("Alunos")]
     public class Aluno
     {
-
         public enum Tipo
         {
             SI = 0,

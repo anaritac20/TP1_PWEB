@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TP1.Models.Docente>
+
+@{
+    ViewBag.Title = "EscolherOri";
+}
+
+<h2>EscolherOri</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Comissao)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.DataDefesa)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="checkbox">
+                <label>
+                    <input type="checkbox" name="Selected" value="@item.Selecionado" />
+                    @item.Nome
+                </label>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+
+            @*<td>
+                    @Html.CheckBoxFor(m => m.Selecionado)
+
+                </td>*@
+        </tr>
+    }
+
+</table>
