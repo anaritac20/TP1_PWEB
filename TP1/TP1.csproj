@@ -314,7 +314,6 @@
     <Content Include="Views\Aluno\ListarAlunos.cshtml" />
     <Content Include="Views\Aluno\Delete.cshtml" />
     <Content Include="Views\Aluno\Index.cshtml" />
-    <Content Include="Views\Empresa\ListarPropostas.cshtml" />
     <Content Include="Views\Home\PerfilIncompleto.cshtml" />
     <Content Include="Views\Proposta\SubmitP.cshtml" />
     <Content Include="Views\Proposta\EscolherOri.cshtml" />

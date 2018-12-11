@@ -20,51 +20,57 @@
         <th>
             @Html.DisplayNameFor(model => model.Local)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ramo)
+        </th>
         @*     <th>
-                 @Html.DisplayNameFor(model => model.Livre)
-             </th>
-            <th>
-                 @Html.DisplayNameFor(model => model.Aceite)
-             </th>
-             <th>
-                 @Html.DisplayNameFor(model => model.JustiAceite)
-             </th>
-             <th>
-                 @Html.DisplayNameFor(model => model.Avaliacao)
-             </th>*@
+             @Html.DisplayNameFor(model => model.Livre)
+         </th>
+        <th>
+             @Html.DisplayNameFor(model => model.Aceite)
+         </th>
+         <th>
+             @Html.DisplayNameFor(model => model.JustiAceite)
+         </th>
+         <th>
+             @Html.DisplayNameFor(model => model.Avaliacao)
+         </th>*@
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Local)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Livre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aceite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JustiAceite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avaliacao)
-            </td>*@
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>*@
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Local)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ramo)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Livre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aceite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JustiAceite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avaliacao)
+        </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>*@
+    </tr>
     }
 
 </table>

@@ -33,7 +33,7 @@ namespace TP1.Controllers
 
 
         [HttpPost]
-        //  [Authorize(Roles = "Empresa")]
+        [Authorize(Roles = "Empresa")]
         public ActionResult SubmitE(Proposta s)
         {
             var CurrentID = User.Identity.GetUserId();
@@ -59,21 +59,23 @@ namespace TP1.Controllers
 
         public ActionResult ListaPropostas()
         {
-            var CurrentID = User.Identity.GetUserId();
+            //  var CurrentID = User.Identity.GetUserId();
 
             if (ModelState.IsValid)
             {
-               // Empresa emp = context.Empresas.Any<>    );//           x => x.UserId == CurrentID);
-                Docente doc = context.Docentes.Single(x => x.UserId == CurrentID);
-
-                //if (emp == null)
-                //{
-                //    return View(emp.Propostas);
-                //}
-                //else
-                //{
-                //    return View(doc.Propostas);
-                //}
+                if (User.IsInRole("Empresa"))
+                {
+                    Empresa emp = context.Empresas.Single(x => x.UserId == User.Identity.GetUserId());
+                    return View(emp.Propostas);
+                }
+                else
+                {
+                    if (User.IsInRole("Docente"))
+                    {
+                        Docente doc = context.Docentes.Single(x => x.UserId == User.Identity.GetUserId());
+                        return View(doc.Propostas);
+                    }
+                }
             }
             return Content("Não existem propostas a ser exibidas!");
         }

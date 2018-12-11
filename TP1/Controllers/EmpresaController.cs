@@ -29,17 +29,7 @@ namespace TP1.Controllers
             return View(context.Empresas);
         }
 
-        [HttpPost]
-        public ActionResult ListarPropostas()
-        {
-            var CurrentID = User.Identity.GetUserId();
-
-            Empresa f = context.Empresas.Single(x => x.UserId == CurrentID);
-
-            return View(f.Propostas);
-        }
-
-
+     
 
         [HttpGet]
       //  [Authorize(Roles = "Empresa")]

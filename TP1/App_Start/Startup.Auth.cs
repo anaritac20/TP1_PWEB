@@ -83,11 +83,11 @@ namespace TP1
 
                 var user = new ApplicationUser
                 {
-                    UserName = "admin",
+                    UserName = "admin@isec.pt",
                     Email = "admin@isec.pt"
                 };
 
-                string userPWD = @"1qazZAQ";
+                string userPWD = @"\123Qwe";
                 var chkUser = userManager.Create(user, userPWD);
                 //Add default user to role admin
                 if (chkUser.Succeeded)

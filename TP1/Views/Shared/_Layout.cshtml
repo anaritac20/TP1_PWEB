@@ -46,22 +46,12 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">Listar<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Estágios", "ListarPropostas", "Empresa")</li>
-                              @*  <li>@Html.ActionLink("Docentes", "ListarDocentes", "Empresa")</li>*@
+                                <li>@Html.ActionLink("Estágios", "ListaPropostas", "Proposta")</li>
                             </ul>
                         </li>
                         <li> @Html.ActionLink("Submeter Estágio", "SubmitE", "Proposta")</li>
                         <li> @Html.ActionLink("Editar Perfil", "PreenchePerfil", "Empresa")</li>
                     }
-
-
-
-
-
-
-
-
-
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
