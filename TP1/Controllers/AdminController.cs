@@ -10,9 +10,11 @@ namespace TP1.Controllers
     public class AdminController : Controller
     {
         private TP1Context context;
+        private IList<Docente> docentes;
 
         public AdminController()
         {
+            docentes = new List<Docente>();
             context = new TP1Context();
         }
         // GET: Admin
@@ -24,6 +26,19 @@ namespace TP1.Controllers
         public ActionResult listComissaoCurso() {
 
             return View(context.Docentes);
+        }
+        public ActionResult editarMembrosCC() {
+            return View();
+        }
+        public ActionResult chooseMemberToEdit() {
+           
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult editarMembrosCC(Docente c)
+        {
+            return View();
         }
 
 
