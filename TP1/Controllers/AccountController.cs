@@ -195,19 +195,19 @@ namespace TP1.Controllers
                         return RedirectToAction("Index", "Home");
                     }
 
-                    if (model.UserRoles == "Comissao")
-                    {
-                        Docente docente = new Docente()
-                        {
-                            //Nome = "ZZZZZ",
-                            //NomeAssociacao = "ZZZZZZ",
-                            UserId = user.Id
-                        };
+                    //if (model.UserRoles == "Comissao")
+                    //{
+                    //    Docente docente = new Docente()
+                    //    {
+                    //        //Nome = "ZZZZZ",
+                    //        //NomeAssociacao = "ZZZZZZ",
+                    //        UserId = user.Id
+                    //    };
 
-                        context.Docentes.Add(docente);
-                        context.SaveChanges();
-                        return RedirectToAction("Index", "Home");
-                    }
+                    //    context.Docentes.Add(docente);
+                    //    context.SaveChanges();
+                    //    return RedirectToAction("Index", "Home");
+                    //}
 
 
                     if (model.UserRoles == "Empresa")

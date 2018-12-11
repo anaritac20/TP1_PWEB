@@ -13,7 +13,7 @@ namespace TP1.Models
         public string Nome { get; set; }
         public IList<Aluno> Aluno { get; set; }
         public IList<Proposta> Propostas { get; set; }
-        public DateTime DataDefesa { get; set; }
+        public DateTime? DataDefesa { get; set; }
         public bool Selecionado { get; set; }
 
         [ForeignKey("ApplicationUser")]
