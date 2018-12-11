@@ -24,18 +24,16 @@
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Início", "Index", "Home")</li>*@
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Ver Estágios", "ListasEstagios", "Propostas")</li>
-                    <li>@Html.ActionLink("Ver Empresas", "ListasEmpresas", "Empresas")</li>
-
-
-                    <li>@Html.ActionLink("Ver Docentes", "ListasDocentes", "Docentes")</li>    @*isto eventualmente sai daqui*@
+                    <li>@Html.ActionLink("Ver Estágios", "ListaPropostas", "Proposta")</li>
+                    @*<li>@Html.ActionLink("Ver Empresas", "ListasEmpresas", "Empresas")</li>
+                    <li>@Html.ActionLink("Ver Docentes", "ListasDocentes", "Docentes")</li>*@    @*isto eventualmente sai daqui*@
 
                     @if (User.IsInRole("Aluno"))
                     {
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">Listar<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Estágios", "ListarPropostas", "Proposta")</li>
+                                <li>@Html.ActionLink("Estágios", "ListaPropostas", "Proposta")</li>
                                 <li>@Html.ActionLink("Empresas", "ListarEmpresas", "Empresa")</li>
                                 <li>@Html.ActionLink("Editar", "Editar", "Conta")</li>
                             </ul>

@@ -50,11 +50,35 @@ namespace TP1.Controllers
                 s.Student = null;
                 s.Empresas = emp;
                 emp.Propostas.Add(s);
-                
+
             }
             context.SaveChanges();
             return RedirectToAction("../Home/Submetido");
         }
+
+
+        public ActionResult ListaPropostas()
+        {
+            var CurrentID = User.Identity.GetUserId();
+
+            if (ModelState.IsValid)
+            {
+               // Empresa emp = context.Empresas.Any<>    );//           x => x.UserId == CurrentID);
+                Docente doc = context.Docentes.Single(x => x.UserId == CurrentID);
+
+                //if (emp == null)
+                //{
+                //    return View(emp.Propostas);
+                //}
+                //else
+                //{
+                //    return View(doc.Propostas);
+                //}
+            }
+            return Content("Não existem propostas a ser exibidas!");
+        }
+
+
 
         [HttpGet]
         [Authorize(Roles = "Docente")]
@@ -91,8 +115,6 @@ namespace TP1.Controllers
 
         public ActionResult EscolherOri(int num)
         {
-
-
 
             context.SaveChanges();
             return RedirectToAction("Home/Submetido");

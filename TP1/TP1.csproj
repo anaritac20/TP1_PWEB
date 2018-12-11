@@ -320,6 +320,7 @@
     <Content Include="Views\Proposta\EscolherOri.cshtml" />
     <Content Include="Views\Proposta\SubmitE.cshtml" />
     <Content Include="Views\Empresa\PreenchePerfil.cshtml" />
+    <Content Include="Views\Proposta\ListaPropostas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
