@@ -40,7 +40,6 @@ namespace TP1.Controllers
             Empresa emp = context.Empresas.Single(x => x.UserId == CurrentID);
             if (ModelState.IsValid)
             {
-
                 if (emp.Nome == null)
                 {
                     return RedirectToAction("../Home/PerfilIncompleto");
@@ -59,13 +58,13 @@ namespace TP1.Controllers
 
         public ActionResult ListaPropostas()
         {
-            //  var CurrentID = User.Identity.GetUserId();
+            var CurrentID = User.Identity.GetUserId();
 
             if (ModelState.IsValid)
             {
                 if (User.IsInRole("Empresa"))
                 {
-                    Empresa emp = context.Empresas.Single(x => x.UserId == User.Identity.GetUserId());
+                    Empresa emp = context.Empresas.Single(x => x.UserId == CurrentID);
                     return View(emp.Propostas);
                 }
                 else
