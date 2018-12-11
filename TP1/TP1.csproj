@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
@@ -320,6 +321,7 @@
     <Content Include="Views\Proposta\SubmitE.cshtml" />
     <Content Include="Views\Empresa\PreenchePerfil.cshtml" />
     <Content Include="Views\Proposta\ListaPropostas.cshtml" />
+    <Content Include="Views\Admin\listComissaoCurso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
