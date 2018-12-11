@@ -1,0 +1,16 @@
+﻿@model TP1.Models.Docente
+
+@{
+    ViewBag.Title = "chooseMemberToEdit";
+}
+<h4>ESolha um membro do qual quer que percentça à comissao de curso</h4>
+@using (Html.BeginForm("chooseMemberToEdit", "Admin"))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.DropDownList("FieldName")
+
+        </div>
+
+    </div>
+}
