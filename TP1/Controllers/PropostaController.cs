@@ -49,7 +49,6 @@ namespace TP1.Controllers
                 s.Student = null;
                 s.Empresas = emp;
                 emp.Propostas.Add(s);
-
             }
             context.SaveChanges();
             return RedirectToAction("../Home/Submetido");
@@ -64,7 +63,8 @@ namespace TP1.Controllers
             {
                 if (User.IsInRole("Empresa"))
                 {
-                    Empresa emp = context.Empresas.Single(x => x.UserId == CurrentID);
+                    Empresa emp = context.Empresas.Include("Propostas").Single(x => x.UserId == CurrentID);
+
                     return View(emp.Propostas);
                 }
                 else

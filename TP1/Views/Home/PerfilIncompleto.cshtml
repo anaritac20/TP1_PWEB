@@ -4,5 +4,17 @@
 }
 
 <h2>Perfil Incompleto!</h2>
-<h3>Para submeter, deverá completar o seu perfil em "Editar Perfil"</h3>
-@* <a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a> *@
+@if (User.IsInRole("Aluno"))
+{
+    <h3>Para submeter, deverá completar o seu perfil em <a href="~/Aluno/PreenchePerfil">Editar Perfil</a></h3>
+}
+
+@if (User.IsInRole("Empresa"))
+{
+    <h3>Para submeter, deverá completar o seu perfil em <a href="~/Empresa/PreenchePerfil">Editar Perfil</a></h3>
+}
+
+@*@if (User.IsInRole("Docente"))
+{
+    <h3>Para submeter, deverá completar o seu perfil em <a href="~/Views/Docente/PreenchePerfil.cshtml">Editar Perfil</a></h3>
+}*@
