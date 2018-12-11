@@ -64,22 +64,39 @@ namespace TP1.Controllers
                 if (User.IsInRole("Empresa"))
                 {
                     Empresa emp = context.Empresas.Include("Propostas").Single(x => x.UserId == CurrentID);
-
+                    if (emp.Propostas.Count == 0)
+                        return View("NoPropostas");
                     return View(emp.Propostas);
                 }
                 else
                 {
                     if (User.IsInRole("Docente"))
                     {
-                        Docente doc = context.Docentes.Single(x => x.UserId == User.Identity.GetUserId());
+                        Docente doc = context.Docentes.Include("Propostas").Single(x => x.UserId == CurrentID);
+                        if (doc.Propostas.Count == 0)
+                            return View("NoPropostas");
                         return View(doc.Propostas);
+                    }
+                    else
+                    {
+                        if (User.IsInRole("Aluno"))
+                        {
+                            return View(context.Propostas);
+                        }
                     }
                 }
             }
             return Content("Não existem propostas a ser exibidas!");
         }
 
-
+        public ActionResult ListaPropostasEmp(int id)
+        {
+           
+            Empresa emp = context.Empresas.Include("Propostas").Single(x => x.ID == id);
+            if (emp.Propostas.Count == 0)
+                return View("NoPropostas");
+            return View(emp.Propostas);
+        }
 
         [HttpGet]
         [Authorize(Roles = "Docente")]
@@ -112,6 +129,11 @@ namespace TP1.Controllers
             }
             context.SaveChanges();
             return RedirectToAction("Home/Submetido");
+        }
+
+        public ActionResult NoPropostas()
+        {
+            return View();
         }
 
         public ActionResult EscolherOri(int num)

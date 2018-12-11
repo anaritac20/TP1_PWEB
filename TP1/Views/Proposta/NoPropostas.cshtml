@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "NoPropostas";
+}
+
+<h2>Não existem porpostas!</h2>
+@if (User.IsInRole("Empresa"))
+{
+    <h3>Para adicionar uma proposta clique <a href="~/Proposta/SubmitE">aqui!</a></h3>
+}
+@if (User.IsInRole("Comissao"))
+{
+    <h3>Para adicionar uma proposta clique <a href="~/Proposta/SubmitP">aqui!</a></h3>
+}
+

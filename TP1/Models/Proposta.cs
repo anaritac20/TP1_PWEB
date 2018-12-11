@@ -30,5 +30,10 @@ namespace TP1.Models
         public string JustiAceite { get; set; }
         public int Avaliacao { get; set; }
 
+        public Proposta()
+        {
+            Orientadores = new List<Docente>();
+        }
+
     }
 }

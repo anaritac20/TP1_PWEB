@@ -26,6 +26,7 @@ namespace TP1.Controllers
 
         public ActionResult ListasEmpresas()
         {
+            var emp = context.Empresas.Include("ApplicationUser").OrderBy(x =>x.Nome);
             return View(context.Empresas);
         }
 

@@ -214,14 +214,12 @@ namespace TP1.Controllers
                     {
                         Empresa empresa = new Empresa()
                         {
-                            //Nome = "ZZZZZ",
-                            //NomeAssociacao = "ZZZZZZ",
                             UserId = user.Id
                         };
 
                         context.Empresas.Add(empresa);
                         context.SaveChanges();
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("PreenchePerfil", "Empresa");
                     }
 
 

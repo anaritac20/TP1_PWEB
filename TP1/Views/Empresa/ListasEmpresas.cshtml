@@ -1,10 +1,10 @@
-﻿@model IEnumerable<TP1.Models.Empresas>
+﻿@model IEnumerable<TP1.Models.Empresa>
 
 @{
     ViewBag.Title = "ListasEmpresas";
 }
 
-<h2>ListasEmpresas</h2>
+<h2>Lista de Empresas</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Telefone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
         </th>
         <th></th>
     </tr>
@@ -32,12 +32,11 @@
             @Html.DisplayFor(modelItem => item.Telefone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Ver Estágios", "ListaPropostasEmp", "Proposta",new { id = item.ID })
+        @*    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })*@
         </td>
     </tr>
 }

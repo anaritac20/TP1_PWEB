@@ -328,6 +328,8 @@
     <Content Include="Views\Admin\listComissaoCurso.cshtml" />
     <Content Include="Views\Admin\editarMembrosCC.cshtml" />
     <Content Include="Views\Admin\chooseMemberToEdit.cshtml" />
+    <Content Include="Views\Proposta\NoPropostas.cshtml" />
+    <Content Include="Views\Proposta\ListaPropostasEmp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
