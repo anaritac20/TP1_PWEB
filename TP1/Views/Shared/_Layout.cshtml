@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Estagios@DEIS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Estágios@DEIS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -35,9 +35,10 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Estágios", "ListaPropostas", "Proposta")</li>
                             <li>@Html.ActionLink("Empresas", "ListasEmpresas", "Empresa")</li>
-                            <li>@Html.ActionLink("Editar", "Editar", "Conta")</li>
+
                         </ul>
                     </li>
+                    <li> @Html.ActionLink("Submeter Candidatura", "Candidatar", "Aluno")</li>
                     <li> @Html.ActionLink("Editar Perfil", "PreenchePerfil", "Aluno")</li>
                 }
 

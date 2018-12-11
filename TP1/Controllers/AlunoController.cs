@@ -45,7 +45,7 @@ namespace TP1.Controllers
             if (ModelState.IsValid)
             {
                 Aluno f = context.Alunos.Single(x => x.UserId == CurrentID);
-            
+
                 f.Nome = a.Nome;
                 f.nAluno = a.nAluno;
                 f.Curriculo = a.Curriculo;
@@ -57,28 +57,40 @@ namespace TP1.Controllers
         }
 
 
+
+
+        public ActionResult Candidatar()
+        {
+            // ViewBag.Propostas = new SelectList(context.Propostas);
+            return View(context.Propostas);
+        }
+
+        [HttpPost]
+        public ActionResult Candidatar(List<Proposta> c)
+        {
+            var CurrentID = User.Identity.GetUserId();
+
+            if (ModelState.IsValid)
+            {
+                Aluno f = context.Alunos.Single(x => x.UserId == CurrentID);
+
+                f.Candidatura = c;
+
+            }
+            context.SaveChanges();
+            return View();
+        }
+
+
+
+
+
+
         public ActionResult ListarAlunos()
         {
-
             return View(context.Alunos);
         }
 
-        //[HttpGet]
-        //public ActionResult Delete(int c)
-        //{
-        //    Aluno a = context.Alunos.Single(x => x.ID == c);
-        //    return View(a);
-        //}
-        //[HttpPost]
-        //public ActionResult Delete(Aluno a)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        context.Alunos.Remove(a);
-        //    }
-        //    context.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         public ActionResult teste()
         {
@@ -86,3 +98,4 @@ namespace TP1.Controllers
         }
     }
 }
+

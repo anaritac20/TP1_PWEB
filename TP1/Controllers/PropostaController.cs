@@ -86,12 +86,12 @@ namespace TP1.Controllers
                     }
                 }
             }
-            return Content("Não existem propostas a ser exibidas!");
+            return View(context.Propostas);
         }
 
         public ActionResult ListaPropostasEmp(int id)
         {
-           
+
             Empresa emp = context.Empresas.Include("Propostas").Single(x => x.ID == id);
             if (emp.Propostas.Count == 0)
                 return View("NoPropostas");

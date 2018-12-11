@@ -185,8 +185,6 @@ namespace TP1.Controllers
                     {
                         Docente docente = new Docente()
                         {
-                            //Nome = "ZZZZZ",
-                            //NomeAssociacao = "ZZZZZZ",
                             UserId = user.Id
                         };
 
