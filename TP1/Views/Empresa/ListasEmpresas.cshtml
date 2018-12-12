@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
         </td>
         <td>
-            @Html.ActionLink("Ver Estágios", "ListaPropostasEmp", "Proposta",new { id = item.ID })
+            @Html.ActionLink("Ver Estágios", "../Proposta/ListaPropostasEmp", item)
         @*    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })*@
         </td>
     </tr>

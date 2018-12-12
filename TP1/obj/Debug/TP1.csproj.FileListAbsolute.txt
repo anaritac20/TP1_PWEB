@@ -135,7 +135,6 @@ C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csproj.CoreCompileInputs.cache
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csproj.CopyComplete
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.dll
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.pdb
-C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csprojAssemblyReference.cache
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.ModelsChange.resources
 R:\Android\TP1_PWEB\TP1\bin\ApplicationInsights.config
 R:\Android\TP1_PWEB\TP1\bin\TP1.dll.config
@@ -278,3 +277,4 @@ R:\Android\TP1_PWEB\TP1\obj\Debug\TP1.dll
 R:\Android\TP1_PWEB\TP1\obj\Debug\TP1.pdb
 C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.Migrations.ChangeDocente.resources
 R:\Android\TP1_PWEB\TP1\obj\Debug\TP1.Migrations.ChangeDocente.resources
+C:\Users\anari\Desktop\TP1\TP1\obj\Debug\TP1.csprojAssemblyReference.cache
