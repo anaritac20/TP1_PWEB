@@ -1,4 +1,4 @@
-﻿@model TP1.Models.Docente
+﻿@model  IEnumerable<SelectList>
 
 @{
     ViewBag.Title = "chooseMemberToEdit";
@@ -8,9 +8,8 @@
 {
     <div class="form-horizontal">
         <div class="form-group">
-            @Html.DropDownList("FieldName")
-
-        </div>
+           @Html.DropDownListFor("ddlDropDownList",Model,"Default Label", new { @class = "css-class" })
+            </div>
 
     </div>
 }

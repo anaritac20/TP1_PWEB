@@ -32,7 +32,7 @@ namespace TP1.Controllers
         }
         public ActionResult chooseMemberToEdit() {
            
-            return View();
+            return View(UserTypeOptions());
         }
 
         [HttpPost]
@@ -41,6 +41,14 @@ namespace TP1.Controllers
             return View();
         }
 
+        public IEnumerable<SelectListItem> UserTypeOptions() {
+            List<SelectListItem> l = new List<SelectListItem>();
+            foreach (var d in docentes) {
+                l.Add(new SelectListItem { Selected = true, Text = d.Nome, Value = d.ID.ToString()});
+            }
+            ViewBag.list = l;
+            return l;
+        }
 
     }
 }
